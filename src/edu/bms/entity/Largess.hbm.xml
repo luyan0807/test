@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-22 9:55:55 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="edu.bms.entity.Largess" table="LARGESS">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <many-to-one name="reader" class="edu.bms.entity.Reader" fetch="join">
+            <column name="READER" />
+        </many-to-one>
+        <property name="largessDate" type="java.util.Date">
+            <column name="LARGESSDATE" />
+        </property>
+        <property name="operator" type="java.lang.String">
+            <column name="OPERATOR" />
+        </property>
+        <property name="isbn" type="java.lang.String">
+            <column name="ISBN" />
+        </property>
+        <property name="refuseReason" type="java.lang.String">
+            <column name="REFUSEREASON" />
+        </property>
+        <property name="applicationDate" type="java.util.Date">
+            <column name="APPLICATIONDATE" />
+        </property>
+        <property name="image" type="java.lang.String">
+            <column name="IMAGE" />
+        </property>
+        <property name="bookName" type="java.lang.String">
+            <column name="BOOKNAME" />
+        </property>
+        <property name="anthor" type="java.lang.String">
+            <column name="ANTHOR" />
+        </property>
+        <property name="state" type="java.lang.String">
+            <column name="STATE" />
+        </property>
+    </class>
+</hibernate-mapping>

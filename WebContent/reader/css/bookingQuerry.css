@@ -1,0 +1,118 @@
+#Layer33 {
+	position:absolute;
+	width:752px;
+	height:42px;
+	z-index:1;
+	left: 0px;
+	top: 1px;
+}
+#Layer34 {
+	position:absolute;
+	width:770px;
+	height:501px;
+	z-index:2;
+	left: 1px;
+	top: 157px;
+}
+#Layer35 {
+	position:absolute;
+	width:479px;
+	height:34px;
+	z-index:3;
+	left: 87px;
+	top: 196px;
+	background-color:#CCCCCC;
+}
+#tr_1{
+height:30px;
+background-color:#CCCCCC;
+}
+#Layer36 {
+	position:absolute;
+	width:471px;
+	height:192px;
+	z-index:1;
+	left: 89px;
+	top: 76px;
+	border-left-width:thin;
+	border-right-width:thin;
+	border-right-style:dotted;
+	border-left-style:dotted;
+	border-right-color:#CCCCCC;
+	border-left-color:#CCCCCC;
+}
+.rad{
+width:15px;
+height:20px;
+}
+#Layer37 {
+	position:absolute;
+	width:304px;
+	height:31px;
+	z-index:1;
+	left: 72px;
+	top: 68px;
+}
+#Layer38 {
+	position:absolute;
+	width:90px;
+	height:31px;
+	z-index:1;
+	top: 68px;
+	left: 383px;
+}
+#querry{
+width:300px;
+height:25px;
+font-size:18px;
+}
+#Layer39 {
+	position:absolute;
+	width:306px;
+	height:38px;
+	z-index:1;
+	left: 71px;
+	top: 105px;
+}
+#Layer40 {
+	position:absolute;
+	width:200px;
+	height:30px;
+	z-index:1;
+	left: 120px;
+	top: 35px;
+}
+.booking_a{
+text-decoration:none;
+font-size:24px;
+color:#000000;
+
+}
+.booking_a:hover{
+text-decoration:none;
+font-size:24px;
+color:#333366;
+
+}
+#Layer41 {
+	position:absolute;
+	width:122px;
+	height:32px;
+	z-index:1;
+	left: 49px;
+	top: 3px;
+	background-color:#FFFFFF;
+}
+#Layer42 {
+	position:absolute;
+	width:145px;
+	height:29px;
+	z-index:2;
+	left: 247px;
+	top: 4px;
+}
+#sub{
+background-image:url(../images/querry.jpg);
+width:66px;
+height:30px;
+}

@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+#button-div{
+	height: 50px;
+}
+#button1{
+	position: absolute;
+	top:0px;
+	left: 10px;
+}
+#table
+{
+	position: absolute;
+	top:0px;
+	left:-10px;
+}

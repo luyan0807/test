@@ -1,0 +1,126 @@
+#Layer33 {
+	position:absolute;
+	width:752px;
+	height:29px;
+	z-index:1;
+	left: 0px;
+	top: 1px;
+}
+#Layer34 {
+	position:absolute;
+	width:725px;
+	height:553px;
+	z-index:2;
+	left: 25px;
+	top: 35px;
+}
+#Layer35 {
+	position:absolute;
+	width:751px;
+	height:33px;
+	z-index:3;
+	left: 1px;
+	top: 33px;
+}
+#tr_1{
+height:30px;
+background-color:#CCCCCC;
+}
+#Layer36 {
+	position:absolute;
+	width:751px;
+	height:32px;
+	z-index:1;
+	left: 2px;
+	top: 70px;
+	text-align:right;
+}
+.rad{
+width:15px;
+height:20px;
+}
+#Layer37 {
+	position:absolute;
+	width:304px;
+	height:31px;
+	z-index:1;
+	left: 74px;
+	top: 137px;
+}
+#Layer38 {
+	position:absolute;
+	width:76px;
+	height:28px;
+	z-index:1;
+	top: 34px;
+	left: 398px;
+}
+#querry{
+width:300px;
+height:30px;
+}
+#Layer39 {
+	position:absolute;
+	width:306px;
+	height:38px;
+	z-index:1;
+	left: 72px;
+	top: 69px;
+}
+
+#input_sousuo{
+width:300px;
+height:18px;
+}
+#button_id{
+width:40px;
+height:22px;
+}
+.page:hover{
+font-size:18px;
+text-decoration:none;
+color:#00FF00;
+}
+.page{
+font-size:18px;
+text-decoration:none;
+color:#000000
+}
+#sp{
+color:#FF0000;
+}
+.sousuo{
+font-size:18px;
+text-decoration:none;
+color:#000000
+}
+
+.sousuo:hover{
+font-size:18px;
+text-decoration:none;
+color:#00FF00;
+}
+.select{
+height:22px;
+}
+#hr_1{
+width:700;
+text-align:center;
+color:#CCCCCC;
+border:dashed;
+border-width:thin;
+}
+.td_1{
+text-align:left;
+
+}
+#renew{
+color:#0000FF;
+text-decoration:none;
+font-size:20px;
+}
+#renew:hover{
+color:#663300;
+text-decoration:none;
+font-size:20px;
+}

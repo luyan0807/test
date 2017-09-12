@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-22 9:55:55 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="edu.bms.entity.BorrowList" table="BORROWLIST">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <many-to-one name="bookInfo" class="edu.bms.entity.BookInfo" fetch="join">
+            <column name="BOOKINFO_ID" />
+        </many-to-one>
+        <many-to-one name="barcode" class="edu.bms.entity.BookBarcode" lazy="false" fetch="join">
+            <column name="BARCODE_ID" />
+        </many-to-one>
+        <many-to-one name="reader" class="edu.bms.entity.Reader" fetch="join">
+            <column name="READER_ID" />
+        </many-to-one>
+        <property name="borrowDate" type="java.util.Date">
+            <column name="BORROWDATE" />
+        </property>
+        <property name="renewDate" type="java.util.Date">
+            <column name="RENEWDATE" />
+        </property>
+        <property name="renewTime" type="int">
+            <column name="RENEWTIME" />
+        </property>
+        <property name="sReturnDate" type="java.util.Date" access="field">
+            <column name="SRETURNDATE" />
+        </property>
+        <property name="state" type="java.lang.String">
+            <column name="STATE" />
+        </property>
+    </class>
+</hibernate-mapping>

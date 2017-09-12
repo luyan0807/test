@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+#showNotchecked{
+	position: absolute;
+	top:420px;
+	left:120px;
+}
+#joinButton{
+	position: absolute;
+	top:420px;
+	left:350px;
+}
+#ignoreButton{
+	position: absolute;
+	top:420px;
+	left:220px;
+	
+}

@@ -1,0 +1,403 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+           <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+            <%@taglib uri="/struts-tags" prefix="s" %>  
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="css/bootstrap.min.css">  
+     <link rel="stylesheet" href="css/addbook.css">
+     <link rel="stylesheet" href="css/largess.css">
+      <link href="searchbook/css/styles1.css" type="text/css" rel="stylesheet"/>   
+   <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/addbook.js"></script>
+   <script src="js/matching.js"></script>
+       <script src="jquery-1.7.1.min.js"></script>
+       <script src="adminsuccess/js/myjs.js"></script>
+       <script type="text/javascript">
+       $(document).ready(function (){ 
+    	      $("#agreebutton").click(function(){
+    				var chk_value =[];
+    				$('input[type="checkbox"]:checked').each(function(){ 
+    					chk_value.push($(this).val());				
+    				}); 
+    				alert(chk_value.length==0 ?'你还没有选择任何内容！':chk_value); 
+    				var flag=confirm("确定要同意吗？");
+    				 var params = $.param({'ids':chk_value},true); 
+    				if(flag){
+    				$.ajax({  
+    	    	        url: "LargessagreeAll", 
+    	    	        async: false,
+    	    	        type: "POST",  
+    	    	        data: params,    
+    	    	        success: function (data) {
+    	    	        		alert("同意成功");
+    	    	        		location.href = 'showLargess?pageNow=1';
+    	    	        },
+    				    error: function(e) {
+    					alert("同意失败");
+    					},
+    	    	    });
+    				
+    			}
+    				
+    	      });
+    	      });
+       function setPage() {//设置跳到第几页
+    	   var pageNum = $('#jump').val().trim();//获取跳页输入框的值
+    	   var a=Number(pageNum);
+    	   var pageTotal = $('#total').val();
+    	   alert(pageNum);
+    	   alert(pageTotal);
+    	   if(a>0 && a<=pageTotal){//获取的值pageNum 不是数字或者小于0的时候跳到第一页
+    	   	location.href = 'showLargess?pageNow='+pageNum;
+    	   }
+    	   else{
+    	   	alert("输入有误，请重新输入");
+    	   }
+    	   }
+       </script>
+     
+<title>读者赠书信息</title>
+</head>
+<body>
+
+    <div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+
+			<div class="modal fade" id="modal-container-695345" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<h4 class="modal-title" id="myModalLabel">
+								拒绝
+							</h4>
+						</div>
+						<form action="Largessupdate">
+						<div class="modal-body">
+						<label>编号</label><input id="Largessid" type="text" name="id" style="width:15px;border:none;"/><br/>
+						<label>拒绝理由:</label><textarea name="refuseReason" rows="2" cols="87" id="refuseReason"></textarea>
+						</div>
+						<div class="modal-footer">
+							 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> <input value="保存" type="submit" class="btn btn-primary"/>
+						</div>
+						</form>
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+</div>
+    
+    
+    
+    
+    <div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="modal fade" id="modal-container-535882" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<h4 class="modal-title" id="myModalLabel">
+								详情
+							</h4>
+						</div>
+						<div class="modal-body">
+							<span id="span_content"></span>
+						</div>
+						<div class="modal-footer">
+							 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<nav class="navbar navbar-default navbar-static-top" role="navigation">
+				<div class="navbar-header">
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">sanzhi.lib</a>
+				</div>
+				
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							 <a href="#">读者信息录入</a>
+						</li>
+						<li>
+							 <a href="#">首页</a>
+						</li>
+						<li class="dropdown">
+							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">更多<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li>
+									 <a href="#">资源</a>
+								</li>
+								<li>
+									 <a href="#">服务</a>
+								</li>
+								<li>
+									 <a href="#">活动</a>
+								</li>
+								<li class="divider">
+								</li>
+								<li>
+									 <a href="#">专题</a>
+								</li>
+								<li class="divider">
+								</li>
+								<li>
+									 <a href="#">关于我们</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input class="form-control" type="text" />
+						</div> <button type="submit" class="btn btn-default">检索</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							 <a href="#">我的图书馆</a>
+						</li>
+						<li class="dropdown">
+							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于读者<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li>
+									 <a href="#">读者留言</a>
+								</li>
+								<li>
+									 <a href="#">借阅排行</a>
+								</li>
+								<li>
+									 <a href="#">读者咨询</a>
+								</li>
+								<li class="divider">
+								</li>
+								 <li>
+									 <a href="#">读者意见</a>
+								</li> 
+							</ul>
+						</li>
+					</ul>
+				</div>
+				
+			</nav>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="row clearfix">
+				<div class="col-md-6 column">
+					<img alt="140x140" height="300px" width="580px" src="images/addbook/logo.jpg" />
+				</div>
+				<div class="col-md-6 column">
+					<div class="carousel slide" id="carousel-705543">
+						<ol class="carousel-indicators">
+							<li class="active" data-slide-to="0" data-target="#carousel-705543">
+							</li>
+							<li data-slide-to="1" data-target="#carousel-705543">
+							</li>
+							<li data-slide-to="2" data-target="#carousel-705543">
+							</li>
+						</ol>
+						<div class="carousel-inner">
+							<div class="item active" style=" height: 300px; width: 580px ">
+								<img alt="" width="580px" src="images/addbook/book1.jpg" />
+								<div class="carousel-caption">
+									<h4>
+										SANZHI LIBRARY
+									</h4>
+									<p>
+										welcome to you
+									</p>
+								</div>
+							</div>
+							<div class="item" style=" height: 300px; width: 580px ">
+								<img alt="" width="580px" src="images/addbook/book2.jpg" />
+								<div class="carousel-caption">
+									<h4>
+										BOOK WORLD
+									</h4>
+									<p>
+										always read book
+									</p>
+								</div>
+							</div>
+							<div class="item" style=" height: 300px; width: 580px ">
+								<img alt="" width="580px"src="images/addbook/book3.jpg" />
+								<div class="carousel-caption">
+									<h4>
+										BOOK LIFE
+									</h4>
+									<p>
+										read what you want
+									</p>
+								</div>
+							</div>
+						</div> <a class="left carousel-control" href="#carousel-705543" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-705543" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+					</div>
+				</div>
+			</div>
+			<div class="page-header">
+				<h1>
+					读者赠书信息 <small>sanzhi.lib.cn</small>
+				</h1>
+			</div>
+			<div id="button-div" >
+			<input type="button" id="agreebutton" class="btn btn-default" value="一键同意"/>
+			 <s:set name="page" value="#request.page"></s:set>  
+			 当前是第<s:property value="#page.pageNow"/>页，共<s:property value="#page.totalPage"/>页  
+        <s:if test="#page.hasFirst">  
+            <a href="showLargess?pageNow=1"  target="main">首页</a>  
+        </s:if>  
+        <s:if test="#page.hasPre">  
+            <a href="showLargess?pageNow=<s:property value="#page.pageNow-1"/> "  target="main">&lt;上一页</a>  
+        </s:if> 
+<s:if test="#page.totalPage>0">
+  <s:if test="#page.totalPage>10" >
+        <s:if test="#page.pageNow>=1 && #page.pageNow<=6" >
+            <s:bean name="org.apache.struts2.util.Counter" id="counter">
+               <s:param name="first" value="1" />
+               <s:param name="last" value="10" />
+               <s:iterator>
+                  <a href="showLargess?pageNow=<s:property/>"> <s:property/></a>
+               </s:iterator>
+            </s:bean>
+        </s:if>
+        <s:if test="#page.pageNow>6 && #page.pageNow<=#page.totalPage-4">
+            <s:bean name="org.apache.struts2.util.Counter" id="counter">
+               <s:param name="first" value="#page.pageNow-5" />
+               <s:param name="last" value="#page.pageNow+4" />
+               <s:iterator>
+                  <a href="showLargess?pageNow=<s:property/>"> <s:property/></a>
+               </s:iterator>
+            </s:bean>
+        </s:if>
+        <s:if test="#page.pageNow>#page.totalPage-4 && #page.pageNow<=#page.totalPage">
+               <s:bean name="org.apache.struts2.util.Counter" id="counter">
+               <s:param name="first" value="#page.totalPage-9" />
+               <s:param name="last" value="#page.totalPage" />
+               <s:iterator>
+                  <a href="showLargess?pageNow=<s:property/>"> <s:property/></a>
+               </s:iterator>
+               </s:bean>
+        </s:if>
+  </s:if> 
+  <s:else> 
+  <s:bean name="org.apache.struts2.util.Counter" id="counter">
+               <s:param name="first" value="1" />
+               <s:param name="last" value="#page.totalPage" />
+               <s:iterator>
+                  <a href="showLargess?pageNow=<s:property/>"> <s:property/></a>
+               </s:iterator>
+            </s:bean>
+  </s:else>
+  </s:if>
+<s:if test="#page.hasNext">  
+             <a  href="showLargess?pageNow=<s:property value="#page.pageNow+1" />" target="main">下一页&gt;</a>  
+        </s:if>  
+         <s:if test="#page.hasLast">  
+            <a href="showLargess?pageNow=<s:property value="#page.totalPage"/>"  target="main">尾页&gt;&gt;</a>  
+        </s:if>
+        &nbsp;&nbsp;&nbsp;&nbsp;跳到第<input type="text" id="jump" size="3"/><input type="hidden" id="total" value="${page.totalPage}">页<input name="jumpButton" type="button" value="跳转 "  class="btn btn-default" size="20" onclick="setPage()"/>
+			 
+			</div>
+			<div class="container">
+	<div class="row clearfix" id="table1">
+		<div class="col-md-12 column">
+			<table id="table1" class="table" border="0" cellpadding="0" cellspacing="0" width="860px">
+  <tr>
+       <th></th>
+        <th>编号</th>
+     <th>封面</th>
+    <th >操作员</th>
+    <th >赠书日期</th>
+    <th>申请日期</th>
+     <th >作者</th>
+      <th >isbn</th>
+       <th>图书名称</th>
+        <th>申请状态</th>
+         <th>审核状态</th>
+         <th>拒书理由</th>
+      
+  </tr>
+  <s:iterator value="#request.largesses" var="lar">
+   <tr id="#lar.id">
+    <td width="50px"><input type="checkbox" name="checkbox" value="${lar.id}"/></td>
+     <td><s:property value="#lar.id"/></td>
+    <td><img height="80px" width="80px" src='upload/<s:property value="#lar.image"/>'/></td>
+    <td><s:property value="#lar.operator"/></td>
+    <td><s:date name="#lar.largessDate" format="yyyy-MM-dd"/></td>
+    <td><s:date name="#lar.applicationDate" format="yyyy-MM-dd"/></td>
+    <td><s:property value="#lar.anthor"/></td>
+    <td><s:property value="#lar.isbn"/></td>
+    <td><s:property value="#lar.bookName" /></td>
+   <s:if test="#lar.state==0">  
+   <td>申请中</td> 
+   </s:if>
+   <s:if test="#lar.state==1">
+  <td>已同意</td></s:if>
+     <s:if test="#lar.state==2">
+  <td>拒绝</td></s:if>
+    <s:if test="#lar.state==0">
+    <td>
+    <a style="color: blue; text-align:left" href="/BMS-ssh/Largessagree?id=${lar.id}">同意</a>
+    <a onclick="refuseReason(${lar.id});" style="color:red" id="modal-695345" href="#modal-container-695345" role="button" class="btn" data-toggle="modal">拒绝</a>
+    </td>
+    </s:if>
+    <s:if test="#lar.state==2">
+    <td>
+    已审核
+    </td>
+    </s:if>
+        <s:if test="#lar.state==1">
+    <td>
+    已审核
+    </td>
+    </s:if>
+    <s:if test="#lar.state==2">
+    <td> 
+    <a href="#modal-container-535882" style="color: blue;" onclick="showReason('${lar.refuseReason}');" id="modal-535882"  role="button" class="btn" data-toggle="modal">拒绝理由</a>
+    </td>
+    </s:if>
+       <s:if test="#lar.state==1">
+  <td>------------------</td></s:if>
+  </tr>
+  </s:iterator>
+</table>
+		</div>
+	</div>
+</div>
+			
+			
+			
+		</div>
+	</div>
+	<div class="row clearfix" id="u5">
+		<div class="col-md-12 column">
+		<img alt="140x140" src="images/addbook/always.png" /> 
+		</div><!-- height="300px" width="1160px" -->
+		</div>
+</div>
+</body>
+</html>

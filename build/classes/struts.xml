@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<package name="default" namespace="/" extends="struts-default">
+	<interceptors>
+		<interceptor-stack name="sshStack">
+			<interceptor-ref name="paramsPrepareParamsStack">
+				<param name="prepare.alwaysInvokePrepare">false</param>
+			</interceptor-ref>
+		</interceptor-stack>
+	</interceptors>
+
+	<!-- 使用新的拦截器栈 -->
+	<default-interceptor-ref name="sshStack"></default-interceptor-ref>
+	
+    <action name="admin-*" class="adminAction" method="{1}">
+    <result name="success">/WEB-INF/views/adminsuccess.jsp</result>
+    <result name="input">/adminlogin.jsp</result>
+    <result name="error">/WEB-INF/views/save-erro.jsp</result>
+    </action> 
+    
+    <action name="checkCode" class="adminAction" method="checkCode">
+    <result name="ajax" type="stream">
+    <param name="contentType">text/html</param>
+    <param name="inputName">inputStream</param>
+    </result>
+    </action>
+    
+    <action name="checkIdno" class="adminAction" method="checkIdno">
+    <result name="ajax" type="stream">
+    <param name="contentType">text/html</param>
+    <param name="inputName">inputStream</param>
+    </result>
+    </action>
+    
+    <action name="bookinfo" class="bookInfoAction" method="execute">
+    <result name="success">/WEB-INF/views/adminsuccess.jsp</result>
+    <result name="input">/WEB-INF/views/save-erro.jsp</result>
+    <result name="update">/updatebook.jsp</result>
+    </action>
+    
+    <action name="check-isbn" class="bookInfoAction" method="checkIsbn">
+    <result name="ajax-success" type="stream">
+    <param name="contentType">text/html</param>
+    <param name="inputName">inputStream</param>
+    </result>
+    </action>
+    
+    <action name="bookinfo-update" class="bookInfoAction" method="update">
+    <result name="update"  type="redirect">/updateB.jsp</result>
+    </action>
+    
+    <action name="bookinfo-delete" class="bookInfoAction" method="delete">
+    <result name="ajax-success" type="stream">
+    <param name="contentType">text/html</param>
+    <param name="inputName">inputStream</param>
+    </result>
+    </action>
+    
+    <action name="bookbarcode-*" class="bookBarcodeAction" method="{1}">
+    <result name="success">/WEB-INF/views/adminsuccess.jsp</result>
+    <result name="input">/WEB-INF/views/save-erro.jsp</result>
+    <result name="ajax" type="stream">
+    <param name="contentType">text/html</param>
+    <param name="inputName">inputStream</param>
+    </result>
+    </action>
+    
+    <action name="vaisbn" class="bookBarcodeAction" method="vaisbn">
+    <result name="ajax" type="stream">
+    <param name="contentType">text/html</param>
+    <param name="inputName">inputStream</param>
+    </result>
+    </action>
+    
+    <action name="vabarcode" class="bookBarcodeAction" method="vabarcode">
+    <result name="ajax" type="stream">
+    <param name="contentType">text/html</param>
+    <param name="inputName">inputStream</param>
+    </result>
+    </action>
+    
+    <action name="vabarcode2" class="bookBarcodeAction" method="vabarcode2">
+    <result name="ajax" type="stream">
+    <param name="contentType">text/html</param>
+    <param name="inputName">inputStream</param>
+    </result>
+    </action>
+    
+    
+    <action name="vaisbn2" class="bookBarcodeAction" method="vaisbn2">
+    <result name="ajax" type="stream">
+    <param name="contentType">text/html</param>
+    <param name="inputName">inputStream</param>
+    </result>
+    </action>
+    
+    
+    <action name="searchbook" class="searchBookAction">
+    <result name="success">/searchbook.jsp</result>
+    <result name="input">/WEB-INF/views/searchbook-error.jsp</result>
+    </action>
+        
+    <action name="searchbook-up" class="searchBookAction">
+    <result name="success">/updatebook.jsp</result>
+    <result name="input">/WEB-INF/views/save-erro.jsp</result>
+    </action>
+    
+    <action name="showbook" class="searchBookAction" method="showbook">
+    <result name="showbook">/showbook.jsp</result>
+    </action>
+    
+    <action name="borrow-validation" class="borrowAction" method="borrow">
+    <result name="success" type="stream">
+    <param name="contentType">text/html</param>
+    <param name="inputName">inputStream</param>
+    </result>
+    </action>
+     
+     <action name="validationReader" class="borrowAction" method="validationReader">
+     <result name="ajax" type="stream">
+    <param name="contentType">text/html</param>
+    <param name="inputName">inputStream</param>
+    </result>
+     </action>
+     
+     <action name="validationBook" class="borrowAction" method="validationBook">
+     <result name="ajax" type="stream">
+    <param name="contentType">text/html</param>
+    <param name="inputName">inputStream</param>
+    </result>
+     </action>
+    
+    <action name="vaBarcoed" class="returnListAction" method="vaBarcoed">
+     <result name="ajax" type="stream">
+    <param name="contentType">text/html</param>
+    <param name="inputName">inputStream</param>
+    </result>
+    </action>
+    
+    <action name="returnbook" class="returnListAction" method="returnBook">
+    <result name="ajax" type="stream">
+    <param name="contentType">text/html</param>
+    <param name="inputName">inputStream</param>
+    </result>
+    </action>
+    
+    <action name="showLargess" class="LargessAction" method="showLargess">
+     <result name="showall">/largess.jsp</result>
+    </action>
+    <action name="showNotchecked" class="LargessAction" method="showNotChecked">
+     <result name="success">/largess.jsp</result>
+    </action>
+    <action name="Largessupdate" class="LargessAction" method="update">
+     <result name="success">/largess.jsp</result>
+    </action>
+    <action name="Largessagree"  class="LargessAction" method="agree">
+      <result name="success">/largess.jsp</result>
+    </action>
+    <action name="LargessagreeAll"  class="LargessAction" method="agreeAll">
+    <result name="success">/largess.jsp</result>
+    </action>
+    
+    <action name="showWishBook" class="WishBookAction" method="showWishBook">
+    <result  name="success">/wishbook.jsp</result>
+    </action>
+    <action name="showNotcheckedWB" class="WishBookAction" method="showNotcheckedWB">
+    <result  name="success">/wishbook.jsp</result>
+    </action>
+    
+    <action name="SecurityCodeImageAction" class="edu.bms.action.SecurityCodeImageAction">  
+            <result name="success" type="stream">  
+                <param name="contentType">image/jpeg</param>  
+               <param name="inputName">imageStream</param>  
+               <param name="bufferSize">2048</param>  
+               /index.jsp
+            </result>  
+		</action>
+    
+</package>
+</struts>

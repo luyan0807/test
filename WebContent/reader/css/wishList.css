@@ -1,0 +1,49 @@
+#Layer33 {
+	position:absolute;
+	width:761px;
+	height:471px;
+	z-index:1;
+	left: 1px;
+	top: 190px;
+	background-image:url(../images/u44_state3.PNG);
+}
+#Layer34 {
+	position:absolute;
+	width:554px;
+	height:481px;
+	z-index:1;
+	left: 101px;
+	top: -61px;
+	background-color:#FDFEF8;
+}
+
+.pre_next{
+text-decoration:none;
+color:#000000;
+margin-right:50px;
+margin-left:50px;
+font-size:18px;
+}
+
+.pre_next:hover{
+text-decoration:none;
+margin-right:50px;
+margin-left:50px;
+font-size:18px;
+}
+#addwish{
+font-size:30px;
+color:#B7EC15;
+text-decoration:none;
+}
+
+.td_1{
+color:#000000;
+font-size:18px;
+border-bottom-width:thin;
+border-bottom-color:#CCCCCC;
+border-bottom-style:dotted;
+border-right-width:thin;
+border-right-color:#CCCCCC;
+border-right-style:dotted;
+}

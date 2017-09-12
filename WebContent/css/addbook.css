@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+#u1{
+position:relative; 
+left:0px;
+bottom:0px
+}
+#u2{
+	top:10px;
+	left:0px;
+	
+}
+#u3{
+position:relative; 
+top:160px;
+left:230px;
+bottom:0px
+}
+#u4{
+position:relative; 
+top:-70px;
+left:0px;
+bottom:0px;
+height: 0px;
+}
+#u5{
+height:0px;
+}
+.trip{
+	color: red;
+}

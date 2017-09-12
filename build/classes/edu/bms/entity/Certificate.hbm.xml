@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-22 9:55:55 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="edu.bms.entity.Certificate" table="CERTIFICATE">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="company" type="java.lang.String">
+            <column name="COMPANY" />
+        </property>
+        <property name="work" type="java.lang.String">
+            <column name="WORK" />
+        </property>
+        <property name="birthDay" type="java.util.Date">
+            <column name="BIRTHDAY" />
+        </property>
+        <property name="term" type="java.util.Date">
+            <column name="TERM" />
+        </property>
+        <property name="arrearage" type="double">
+            <column name="ARREARAGE" />
+        </property>
+        <property name="postalCode" type="java.lang.String">
+            <column name="POSTALCODE" />
+        </property>
+        <property name="userName" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="rank" type="int">
+            <column name="RANK" />
+        </property>
+        <property name="image" type="java.lang.String">
+            <column name="IMAGE" />
+        </property>
+        <property name="booking" type="int">
+            <column name="BOOKING" />
+        </property>
+        <property name="renew" type="int">
+            <column name="RENEW" />
+        </property>
+        <property name="cum_load" type="int">
+            <column name="CUM_LOAD" />
+        </property>
+        <property name="cum_penalty" type="double">
+            <column name="CUM_PENALTY" />
+        </property>
+        <property name="peccancy" type="java.lang.Boolean">
+            <column name="PECCANCY" />
+        </property>
+        <property name="qualification" type="java.lang.String">
+            <column name="QUALIFICATION" />
+        </property>
+        <property name="borrowNum" type="int">
+            <column name="BORROWNUM" />
+        </property>
+        <set name="bookings" table="BOOKING" inverse="false" lazy="true">
+            <key>
+                <column name="ID" />
+            </key>
+            <one-to-many class="edu.bms.entity.Booking" />
+        </set>
+        <set name="largesses" table="LARGESS" inverse="false" lazy="true">
+            <key>
+                <column name="ID" />
+            </key>
+            <one-to-many class="edu.bms.entity.Largess" />
+        </set>
+        <set name="returnLists" table="RETURNLIST" inverse="false" lazy="true">
+            <key>
+                <column name="ID" />
+            </key>
+            <one-to-many class="edu.bms.entity.ReturnList" />
+        </set>
+        <set name="tickets" table="TICKET" inverse="false" lazy="true">
+            <key>
+                <column name="ID" />
+            </key>
+            <one-to-many class="edu.bms.entity.Ticket" />
+        </set>
+        <set name="wishBooks" table="WISHBOOK" inverse="false" lazy="true">
+            <key>
+                <column name="ID" />
+            </key>
+            <one-to-many class="edu.bms.entity.WishBook" />
+        </set>
+    </class>
+</hibernate-mapping>

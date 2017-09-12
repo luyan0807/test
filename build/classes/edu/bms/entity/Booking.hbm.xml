@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-22 9:55:55 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="edu.bms.entity.Booking" table="BOOKING">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="bookingDate" type="java.util.Date">
+            <column name="BOOKINGDATE" />
+        </property>
+        <property name="limitDate" type="java.util.Date">
+            <column name="LIMITDATE" />
+        </property>
+        <property name="CancelDate" type="java.util.Date">
+            <column name="CANCELDATE" />
+        </property>
+        <many-to-one name="reader" class="edu.bms.entity.Reader" fetch="join">
+            <column name="READER" />
+        </many-to-one>
+        <property name="isbn" type="java.lang.String">
+            <column name="ISBN" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,66 @@
+.td_1{
+width:40px;
+
+}
+.td_2{
+width:90px;
+
+}
+.td_3{
+width:270px;
+
+}
+.td_4{
+width:85px;
+
+}
+.td_5{
+width:85px;
+
+}
+.td_6{
+width:85px;
+
+}
+.td_7{
+width:70px;
+
+}
+input{
+height:25px;
+width:200px;
+}
+
+#sub{
+width:40px;
+height:25px;
+}
+
+#Layer33 {
+	position:absolute;
+	width:752px;
+	height:42px;
+	z-index:1;
+	left: 0px;
+	top: 1px;
+}
+#Layer34 {
+	position:absolute;
+	width:770px;
+	height:545px;
+	z-index:2;
+	left: -4px;
+	top: 112px;
+}
+#Layer35 {
+	position:absolute;
+	width:460px;
+	height:32px;
+	z-index:3;
+	left: 108px;
+	top: 77px;
+}
+#tr_1{
+height:30px;
+background-color:#CCCCCC;
+}

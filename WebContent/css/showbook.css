@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+#label{
+	font-size:small;
+	
+}
+body{
+  background-image:url('/BMS-ssh/images/showbook/bg.png');
+  background-position:left top;
+  background-repeat:no-repeat;
+  background-attachment:scroll;
+  background-size:1920px 1920px;
+}
+#borrowlist{
+position:relative; 
+top:-168px;
+left:355px;
+}

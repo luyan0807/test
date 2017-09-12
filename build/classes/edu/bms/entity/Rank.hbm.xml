@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-22 9:55:55 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="edu.bms.entity.Rank" table="RANK">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="activeDate" type="int">
+            <column name="ACTIVEDATE" />
+        </property>
+        <property name="rank" type="java.lang.String">
+            <column name="RANK" />
+        </property>
+        <property name="borrowLimit" type="int">
+            <column name="BORROWLIMIT" />
+        </property>
+        <property name="renewNum" type="int">
+            <column name="RENEWNUM" />
+        </property>
+        <property name="borrowMaxNum" type="int">
+            <column name="BORROWMAXNUM" />
+        </property>
+        <many-to-one name="reader" class="edu.bms.entity.Reader" fetch="join">
+            <column name="READER_ID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
