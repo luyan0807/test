@@ -184,5 +184,10 @@
             </result>  
 		</action>
     
+    <action name="showBookList" class="bookListAction" method="getBookList">
+    <result  name="success">/booklist.jsp</result>
+    </action>
+    
+    
 </package>
 </struts>

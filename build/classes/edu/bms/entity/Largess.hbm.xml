@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-5-22 9:55:55 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2017-10-16 14:16:16 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="edu.bms.entity.Largess" table="LARGESS">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
-            <generator class="native" />
+            <generator class="assigned" />
         </id>
         <many-to-one name="reader" class="edu.bms.entity.Reader" fetch="join">
             <column name="READER" />

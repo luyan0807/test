@@ -5,18 +5,18 @@ package edu.bms.entity;
  * 主要是为图书管理员导购新书，大部分是根据读者的心愿单生成，再通过管理员的审核，生成图书导购单。
  * */
 import java.sql.Date;
-
 public class BookList {
-   private int id;//自增id
-   private String name;//书名
-   private String author;//作者
-   private Date addDate;//添加日期
-   private Integer edition;//版次
-public int getId() {
-	return id;
+	
+   private String name;//书单名称
+   private String reason;//创建原因
+   private Integer id;//自增id
+   private Date createDate;//创建日期
+   private Admin admin_id;//创建者
+public Admin getAdmin_id() {
+	return admin_id;
 }
-public void setId(int id) {
-	this.id = id;
+public void setAdmin_id(Admin admin_id) {
+	this.admin_id = admin_id;
 }
 public String getName() {
 	return name;
@@ -24,23 +24,22 @@ public String getName() {
 public void setName(String name) {
 	this.name = name;
 }
-public String getAuthor() {
-	return author;
+public String getReason() {
+	return reason;
 }
-public void setAuthor(String author) {
-	this.author = author;
+public void setReason(String reason) {
+	this.reason = reason;
 }
-public Date getAddDate() {
-	return addDate;
+public Integer getId() {
+	return id;
 }
-public void setAddDate(Date addDate) {
-	this.addDate = addDate;
+public void setId(Integer id) {
+	this.id = id;
 }
-public Integer getEdition() {
-	return edition;
+public Date getCreateDate() {
+	return createDate;
 }
-public void setEdition(Integer edition) {
-	this.edition = edition;
-}
-   
+public void setCreateDate(Date createDate) {
+	this.createDate = createDate;
+}  
 }

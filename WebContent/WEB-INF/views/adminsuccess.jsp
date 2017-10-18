@@ -285,7 +285,8 @@
                 <div id="u34_div" class=""></div>
                 <!-- Unnamed () -->
                 <div id="u35" class="text">
-                  <p><span>图书导购单</span></p>
+                <s:iterator value="#session.admin" var="a"></s:iterator>
+                  <p><span><a href="booklist.jsp?id=${a.id}" style='text-decoration:none;'>图书导购单</a></span></p>
                 </div>
               </div>
 
@@ -713,36 +714,7 @@
                 </div>
               </div>
               
-              <div id="u53_state8" class="panel_state" data-label="图书导购单" style="visibility: hidden;">
-                <div id="u53_state8_content" class="panel_state_content">
-             <from  action="">
-             <input type="button" value="显示全部">
-             <input type="button" value="打印" />
-             <input type="button" value="添加" />
-             <input type="button" value="一键忽略" />
-             </from>
-             <table border="1" cellpadding="0" cellspacing="0" width="860px">
-                <tr>
-                <th>
-                                                 
-                </th>  
-                <th>
-                                                 书名
-                </th>                
-                <th>
-                                                作者
-                </th>
-                <th>
-                                                 版本
-                </th>
-                <th>
-                                                 添加日期
-                </th>
-                </tr>
-                </table>   
-                
-                </div>
-              </div>
+            
     
               <div id="u53_state10" class="panel_state" data-label="我的评分" style="visibility: hidden;">
                 <div id="u53_state10_content" class="panel_state_content">
@@ -790,17 +762,17 @@
                 </div>
 
                 <!-- Unnamed (Menu Item) -->
-                <div id="u184" class="ax_default menu_item">
-                  <img id="u184_img" class="img " src="images/index/u184.png"/>
+                <div id="u186" class="ax_default menu_item">
+                  <img id="u186_img" class="img " src="images/index/u186.png"/>
                   <!-- Unnamed () -->
                   <div id="u185" class="text">
-                    <p><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; <a href="test.jsp" style='text-decoration:none;'>图书借阅排行</a></span></p>
+                    <p><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="borrowSort.jsp" style='text-decoration:none;'>图书借阅排行</a></span></p>
                   </div>
                 </div>
 
                 <!-- Unnamed (Menu Item) -->
-                <div id="u186" class="ax_default menu_item">
-                  <img id="u186_img" class="img " src="images/index/u186.png"/>
+                <div id="u184" class="ax_default menu_item">
+                  <img id="u184_img" class="img " src="images/index/u184.png"/>
                   <!-- Unnamed () -->
                   <div id="u187" class="text">
                     <p><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; <a href="test.jsp" style='text-decoration:none;'>最新活动</a></span></p>

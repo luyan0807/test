@@ -86,4 +86,17 @@
         <bean id="WishBookAction" class="edu.bms.action.WishBookAction" >
         <property name="wishBookService" ref="wishBookService"></property>
         </bean>
+        
+        <bean id="bookListDao" class="edu.bms.dao.BookListDao">       
+        <property name="sessionFactory" ref="sessionFactory"></property>
+        </bean>
+        <bean id="bookListService" class="edu.bms.service.BookListService">
+        <property name="bookListDao" ref="bookListDao"></property>
+        </bean>
+        <bean id="bookListAction" class="edu.bms.action.BookListAction">
+        <property name="bookListService" ref="bookListService"></property>
+        </bean>
+        
+        
+        
 </beans>

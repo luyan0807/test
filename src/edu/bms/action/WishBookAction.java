@@ -7,7 +7,6 @@ import org.apache.struts2.interceptor.RequestAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import edu.bms.dao.WishBookDao;
 import edu.bms.entity.WishBook;
 import edu.bms.model.PageShow;
 import edu.bms.service.WishBookService;
