@@ -2,14 +2,12 @@
  * 
  */
 function showlist(booklist_id){
-	alert("come in");
-	alert(booklist_id);
 	$.ajax({  
-	        url: "check-isbn",  
+	        url: "showBooklist",  
 	        type: "POST",
 	        async: false,
-	        data:{"id":booklist_id},
-	        success:function(data){  
+	        data:{"booklist_id":booklist_id},
+	        success:function(data){
 	        	
 	        }
  });

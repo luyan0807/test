@@ -177,17 +177,18 @@
 								图书导购单
 							</h4>
 						</div>
+						<form action="saveBookList" method="post">
 						<div class="modal-body">
-							<form>
-									<label>导购单名称</label> <input name="sex" id="sex"class="form-control" />
-									<label>导购目的</label><input name="phone" id="phone"class="form-control" />
-	</form>
+									<label>导购单名称</label> <input name="name" class="form-control" />
+									<label>导购目的</label><input name="reason" class="form-control" />
 						</div>
 						<div class="modal-footer">
-							 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> <button type="button" class="btn btn-primary">创建</button>
+							 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							  <input value="创建" type="submit" class="btn btn-primary"/>
+							
 						</div>
+                        </form>
 					</div>
-					
 				</div>
 				
 			</div>
@@ -233,31 +234,60 @@
     <form action="showBookList">
     <button type="submit">我的图书导购单</button>
     </form>
-    
-    <s:iterator value="#request.bookLists" var="li">
-    <table class="table">
-    <tr>
-    <td>名称</td>
-     <td>创建日期</td>
-      <td>创建原因</td>
-    </tr>
-    <tr>
-    <td>    <a href="#modal-container-695345" style="color: blue;" onclick="showlist('${li.id}');" id="modal-535882"  role="button" class="btn" data-toggle="modal"><s:property value="#li.name"/></a> <br/></td>
-   <td> <s:date name="#li.createDate" format="yyyy-MM-dd"/><br/></td>
-    <td><s:property value="#li.reason"/></td>
-    </tr>
-    </table>
-    
-    
-   
-    </s:iterator>
-    
+<s:iterator value="#request.bookLists" var="li"> 
+    <div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="panel-group" id="panel-614287<s:property value="#li.id"/>">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						 <a onclick="showlist(<s:property value="#li.id"/>)" class="panel-title collapsed" style="color: blue;text-decoration:none;" data-toggle="collapse" data-parent="#panel-614287" href="#panel-element-532983<s:property value="#li.id"/>">
+						 <s:property value="#li.name"/> --- <s:date name="#li.createDate" format="yyyy-MM-dd"/> --- <s:property value="#li.reason"/></a>
+					</div>
+					<div id="panel-element-532983<s:property value="#li.id"/>" class="panel-collapse collapse">
+						<div class="panel-body">
+	
+	<table class="table">
+				<thead>
+					<tr>
+						<th>
+							书名
+						</th>
+						<th>
+							作者
+						</th>
+						<th>
+							版次
+						</th>
+						<th>
+							数量
+						</th>
+					</tr>
+				</thead>
+			<tbody>
+			<s:iterator value="#request.bookInfoLists" var="bl"></s:iterator>
+			<tr>
+			<td><s:property value="#bl.bookname"/></td>
+			</tr>
+			</tbody>
+				</table>
+	
 	<form>
 	<label>题名</label><input type="text" name="bookname"/>
 	<label>作者</label><input type="text" name="author"/>
 	<label>版次</label><input type="text" name="author"/>
 	<label>数量</label><input type="text" name="author"/>
 	</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+</s:iterator>
+    
+   
 		
 </div>
 </body>

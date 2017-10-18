@@ -187,6 +187,12 @@
     <action name="showBookList" class="bookListAction" method="getBookList">
     <result  name="success">/booklist.jsp</result>
     </action>
+    <action name="saveBookList" class="bookListAction" method="save">
+    <result  name="save">/booklist.jsp</result>
+    </action>
+    <action name="showBooklist" class="bookListAction" method="showlist">
+    <result  name="show">/booklist.jsp</result>
+    </action>
     
     
 </package>

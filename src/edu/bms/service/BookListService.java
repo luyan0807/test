@@ -3,6 +3,7 @@ package edu.bms.service;
 import java.util.List;
 
 import edu.bms.dao.BookListDao;
+import edu.bms.entity.BookInfoList;
 import edu.bms.entity.BookList;
 
 public class BookListService {
@@ -19,6 +20,16 @@ public void setBookListDao(BookListDao bookListDao) {
 public List<BookList> getBookList(int i) {
 	// TODO Auto-generated method stub
 	return bookListDao.getBookList(i);
+}
+
+public void save(BookList model) {
+	// TODO Auto-generated method stub
+	bookListDao.save(model);
+}
+
+public List<BookInfoList> showlist(int booklist_id) {
+	// TODO Auto-generated method stub
+	return bookListDao.showlist(booklist_id);
 }
   
 }
