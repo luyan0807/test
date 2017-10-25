@@ -37,5 +37,30 @@ public class BookListDao extends BaseDao {
         	 return null;
         }
 	}
+
+	@SuppressWarnings("rawtypes")
+	public List getAll(int id) {
+		String hql1="select id FROM BookList b WHERE b.admin_id =?";
+		Query query1 = getSession().createQuery(hql1).setInteger(0, id);
+		List ids=query1.list();
+		if(ids.size()>0){
+		return ids;
+		}
+		else{
+			return null;
+		}
+	}
+
+	public boolean delete(int booklist_id) {
+		String hql="delete BookList where id=?";
+		System.err.println(booklist_id);
+		try {
+			getSession().createQuery(hql).setInteger(0, booklist_id).executeUpdate();
+		} catch (Exception e) {
+			System.out.println("书单删除错误");
+			return false;
+		}
+		return true;
+	}
     
 }

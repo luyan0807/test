@@ -9,7 +9,7 @@ public class BookList {
 	
    private String name;//书单名称
    private String reason;//创建原因
-   private Integer id;//自增id
+   private int id;//自增id
    private Date createDate;//创建日期
    private Admin admin_id;//创建者
 public Admin getAdmin_id() {
@@ -30,10 +30,10 @@ public String getReason() {
 public void setReason(String reason) {
 	this.reason = reason;
 }
-public Integer getId() {
+public int getId() {
 	return id;
 }
-public void setId(Integer id) {
+public void setId(int id) {
 	this.id = id;
 }
 public Date getCreateDate() {

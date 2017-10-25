@@ -6,11 +6,12 @@ private String bookname;//书名
 private String author;//作者
 private String edition;//版次
 private Integer num;//数量
-private BookList bookList_id;//隶属那个书单
-public BookList getBookList_id() {
+private Integer bookList_id;//隶属那个书单
+
+public Integer getBookList_id() {
 	return bookList_id;
 }
-public void setBookList_id(BookList bookList_id) {
+public void setBookList_id(Integer bookList_id) {
 	this.bookList_id = bookList_id;
 }
 public Integer getId() {

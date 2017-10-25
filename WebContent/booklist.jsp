@@ -229,7 +229,6 @@
 	</div>
 </div>
 		
-		<s:debug></s:debug>
 <!-- 	//<button>打印</button> -->
     <form action="showBookList">
     <button type="submit">我的图书导购单</button>
@@ -243,6 +242,7 @@
 					<div class="panel-heading">
 						 <a onclick="showlist(<s:property value="#li.id"/>)" class="panel-title collapsed" style="color: blue;text-decoration:none;" data-toggle="collapse" data-parent="#panel-614287" href="#panel-element-532983<s:property value="#li.id"/>">
 						 <s:property value="#li.name"/> --- <s:date name="#li.createDate" format="yyyy-MM-dd"/> --- <s:property value="#li.reason"/></a>
+                         <a href="/BMS-ssh/deleteBookList?booklist_id=<s:property value="#li.id"/>" style="color:red;">删除</a>	 
 					</div>
 					<div id="panel-element-532983<s:property value="#li.id"/>" class="panel-collapse collapse">
 						<div class="panel-body">
@@ -262,21 +262,33 @@
 						<th>
 							数量
 						</th>
+						<th>
+							操作
+						</th>
 					</tr>
 				</thead>
 			<tbody>
-			<s:iterator value="#request.bookInfoLists" var="bl"></s:iterator>
+			<s:iterator value="#request.bookInfoLists" var="bl">
+			<s:if test="#bl.bookList_id==#li.id">
 			<tr>
 			<td><s:property value="#bl.bookname"/></td>
+			<td><s:property value="#bl.author"/></td>
+			<td><s:property value="#bl.edition"/></td>
+			<td><s:property value="#bl.num"/></td>
+			<td><a href="/BMS-ssh/deleteBookInfoList?bookInfoList_id=<s:property value="#bl.id"/>" >删除</a></td>
 			</tr>
+			</s:if>
+			</s:iterator>
 			</tbody>
 				</table>
 	
-	<form>
+	<form action="addBookInfoList" method="post">
+	<input type="hidden" name="bookList_id" value="<s:property value="#li.id"/>"/>
 	<label>题名</label><input type="text" name="bookname"/>
 	<label>作者</label><input type="text" name="author"/>
-	<label>版次</label><input type="text" name="author"/>
-	<label>数量</label><input type="text" name="author"/>
+	<label>版次</label><input type="text" name="edition"/>
+	<label>数量</label><input type="text" name="num"/>
+	<input type="submit" value="添加" class="btn btn-default" />
 	</form>
 						</div>
 					</div>

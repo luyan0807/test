@@ -258,4 +258,5 @@ public class BookInfoDao extends BaseDao {
          System.out.println(hql);
 		return borrowLists;
 	}
+	
 }

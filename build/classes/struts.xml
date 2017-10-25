@@ -193,6 +193,21 @@
     <action name="showBooklist" class="bookListAction" method="showlist">
     <result  name="show">/booklist.jsp</result>
     </action>
+    <action name="deleteBookList" class="bookListAction" method="delete">
+    <result  name="success">/booklist.jsp</result>
+    <result name="error">/WEB-INF/views/save-erro.jsp</result>
+    </action>
+    
+    
+    <action name="addBookInfoList" class="bookInfoListAction" method="save">
+    <result  name="success">/booklist.jsp</result>
+    <result name="error">/WEB-INF/views/save-erro.jsp</result>
+    </action>
+    <action name="deleteBookInfoList" class="bookInfoListAction" method="delete">
+    <result  name="success">/booklist.jsp</result>
+    <result name="error">/WEB-INF/views/save-erro.jsp</result>
+    </action>
+
     
     
 </package>

@@ -11,9 +11,12 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
 
+
+
 import edu.bms.entity.Admin;
 import edu.bms.entity.BookInfoList;
 import edu.bms.entity.BookList;
+import edu.bms.service.BookInfoListService;
 import edu.bms.service.BookListService;
 
 public class BookListAction extends ActionSupport implements SessionAware,RequestAware,
@@ -29,10 +32,15 @@ ModelDriven<BookList>,Preparable{
 	private Map<String, Object> session;
 	private Map<String, Object> request;
 	private BookListService bookListService;
+	private BookInfoListService bookInfoListService;
+	@SuppressWarnings("rawtypes")
 	public String getBookList(){
 		Admin admin=(Admin) ActionContext.getContext().getSession().get("admin");
 		List<BookList> bookLists=bookListService.getBookList(admin.getId());
+		List ids=bookListService.getAll(admin.getId());
+		List<BookInfoList> bookInfoLists=bookInfoListService.getAll(ids);
 		request.put("bookLists", bookLists);
+		request.put("bookInfoLists", bookInfoLists);
 		return SUCCESS;
 	}
 	public String showlist(){
@@ -50,6 +58,12 @@ ModelDriven<BookList>,Preparable{
 		model.setAdmin_id(admin);
 		bookListService.save(model);
 		return "save";	
+	}
+	public String delete(){
+		boolean flag=bookListService.delete(booklist_id);
+		if(flag)
+		return SUCCESS;
+		else return ERROR;
 	}
 	public void prepareSave(){
 		model =new BookList();
@@ -104,5 +118,12 @@ ModelDriven<BookList>,Preparable{
 	public void setBooklist_id(int booklist_id) {
 		this.booklist_id = booklist_id;
 	}
-
+	public BookInfoListService getBookInfoListService() {
+		return bookInfoListService;
+	}
+	public void setBookInfoListService(BookInfoListService bookInfoListService) {
+		this.bookInfoListService = bookInfoListService;
+	}
+	
+	
 }

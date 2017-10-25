@@ -87,6 +87,17 @@
         <property name="wishBookService" ref="wishBookService"></property>
         </bean>
         
+         <bean id="bookInfoListDao" class="edu.bms.dao.BookInfoListDao">       
+        <property name="sessionFactory" ref="sessionFactory"></property>
+        </bean>
+        <bean id="bookInfoListService" class="edu.bms.service.BookInfoListService">
+        <property name="bookInfoListDao" ref="bookInfoListDao"></property>
+        </bean>
+        <bean id="bookInfoListAction" class="edu.bms.action.BookInfoListAction">
+        <property name="bookInfoListService" ref="bookInfoListService"></property>
+        </bean>
+        
+        
         <bean id="bookListDao" class="edu.bms.dao.BookListDao">       
         <property name="sessionFactory" ref="sessionFactory"></property>
         </bean>
@@ -95,7 +106,10 @@
         </bean>
         <bean id="bookListAction" class="edu.bms.action.BookListAction">
         <property name="bookListService" ref="bookListService"></property>
+        <property name="bookInfoListService" ref="bookInfoListService"></property>
         </bean>
+       
+        
         
         
         

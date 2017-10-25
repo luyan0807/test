@@ -31,5 +31,16 @@ public List<BookInfoList> showlist(int booklist_id) {
 	// TODO Auto-generated method stub
 	return bookListDao.showlist(booklist_id);
 }
+
+@SuppressWarnings("rawtypes")
+public List getAll(int id) {
+	// TODO Auto-generated method stub
+	return bookListDao.getAll(id);
+}
+
+public boolean delete(int booklist_id) {
+	// TODO Auto-generated method stub
+	return bookListDao.delete(booklist_id);
+}
   
 }
